@@ -98,16 +98,21 @@ public class BotController {
 
 		LinkedHashMap<String, String> hm = new LinkedHashMap<>();
 
-//		List<EventHelper> eventHelpers = new ArrayList<>();
-//		eventHelpers.add(new EventHelper(1, "chooseLanguage", "initial", "B2", null, "osaka"));
-//		eventHelpers.add(new EventHelper(2, "writeStation", "intermediate", "E", 1, "paris"));
-//		eventHelpers.add(new EventHelper(3, "keywordStation", "intermediate", "B3", 2, "tokyo"));
-//		eventHelpers.add(new EventHelper(4, "whichTime", "intermediate", "B4", 3, "london"));
-//		eventHelpers.add(new EventHelper(5, "whichJob", "intermediate", "B4", 4, "help"));
+		// List<EventHelper> eventHelpers = new ArrayList<>();
+		// eventHelpers.add(new EventHelper(1, "chooseLanguage", "initial", "B2", null,
+		// "osaka"));
+		// eventHelpers.add(new EventHelper(2, "writeStation", "intermediate", "E", 1,
+		// "paris"));
+		// eventHelpers.add(new EventHelper(3, "keywordStation", "intermediate", "B3",
+		// 2, "tokyo"));
+		// eventHelpers.add(new EventHelper(4, "whichTime", "intermediate", "B4", 3,
+		// "london"));
+		// eventHelpers.add(new EventHelper(5, "whichJob", "intermediate", "B4", 4,
+		// "help"));
 
 		checkLineFunction(obj);
 		switch (intentName.toLowerCase()) {
-		case "osaka":
+		case "carousel":
 
 			String imageUrl = createUri("/static/buttons/1040.jpg");
 			CarouselTemplate carouselTemplate = new CarouselTemplate(Arrays.asList(
@@ -134,28 +139,26 @@ public class BotController {
 			logger.info("osaka :" + customerMessage);
 			break;
 
-		case "paris":
+		case "menu":
 
 			hm.put("Osaka", "osaka");
 			hm.put("Tokyo", "tokyo");
 			hm.put("London", "london");
-			hm.put("Paris", "paris");
-			hm.put("hokkaido", "hokkaido");
-			hm.put("Kyoto", "Kyoto");
+
 			typeBRecursiveChoices(
 					"https://lh3.googleusercontent.com/oKsgcsHtHu_nIkpNd-mNCAyzUD8xo68laRPOfvFuO0hqv6nDXVNNjEMmoiv9tIDgTj8=w170",
 					" boldTitle", " normalTitle", hm, channelToken, userId);
 			logger.info("paris :" + customerMessage);
 
 			break;
-		case "see more":
+		case "type b":
 
 			typeBRecursiveChoices(
 					"https://lh3.googleusercontent.com/oKsgcsHtHu_nIkpNd-mNCAyzUD8xo68laRPOfvFuO0hqv6nDXVNNjEMmoiv9tIDgTj8=w170",
 					" boldTitle", " normalTitle", hm, channelToken, userId);
-			logger.info("see more :" + customerMessage);
+			logger.info("see more :", customerMessage);
 			break;
-		case "london":
+		case "b2":
 			hm = new LinkedHashMap<>();
 			hm.put("Osaka", "osaka");
 			hm.put("Tokyo", "tokyo");
@@ -163,12 +166,9 @@ public class BotController {
 			typeBChoices(
 					"https://lh3.googleusercontent.com/oKsgcsHtHu_nIkpNd-mNCAyzUD8xo68laRPOfvFuO0hqv6nDXVNNjEMmoiv9tIDgTj8=w170",
 					" boldTitle", " normalTitle", hm, " nextOrSeeMore", " nextOrSeeMoreAnswer", channelToken, userId);
-			logger.info("London :" + customerMessage);
+			logger.info("London :", customerMessage);
 			break;
-		case "tokyo":
-			sendAlertViaSlack(userId, timestamp, customerMessage);
-			logger.info("slack :" + customerMessage);
-			break;
+
 		case "date":
 			typeDQuestion(
 					"https://lh3.googleusercontent.com/oKsgcsHtHu_nIkpNd-mNCAyzUD8xo68laRPOfvFuO0hqv6nDXVNNjEMmoiv9tIDgTj8=w170",
