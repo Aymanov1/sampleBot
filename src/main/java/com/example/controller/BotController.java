@@ -98,12 +98,12 @@ public class BotController {
 
 		LinkedHashMap<String, String> hm = new LinkedHashMap<>();
 
-		List<EventHelper> eventHelpers = new ArrayList<>();
-		eventHelpers.add(new EventHelper(1, "chooseLanguage", "initial", "B2", null, "osaka"));
-		eventHelpers.add(new EventHelper(2, "writeStation", "intermediate", "E", 1, "paris"));
-		eventHelpers.add(new EventHelper(3, "keywordStation", "intermediate", "B3", 2, "tokyo"));
-		eventHelpers.add(new EventHelper(4, "whichTime", "intermediate", "B4", 3, "london"));
-		eventHelpers.add(new EventHelper(5, "whichJob", "intermediate", "B4", 4, "help"));
+//		List<EventHelper> eventHelpers = new ArrayList<>();
+//		eventHelpers.add(new EventHelper(1, "chooseLanguage", "initial", "B2", null, "osaka"));
+//		eventHelpers.add(new EventHelper(2, "writeStation", "intermediate", "E", 1, "paris"));
+//		eventHelpers.add(new EventHelper(3, "keywordStation", "intermediate", "B3", 2, "tokyo"));
+//		eventHelpers.add(new EventHelper(4, "whichTime", "intermediate", "B4", 3, "london"));
+//		eventHelpers.add(new EventHelper(5, "whichJob", "intermediate", "B4", 4, "help"));
 
 		checkLineFunction(obj);
 		switch (intentName.toLowerCase()) {
